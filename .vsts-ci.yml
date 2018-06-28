@@ -1,9 +1,7 @@
 phases:
-################################################################################
 - phase: Linux
-################################################################################
   queue:
-    name: LightGBM-Linux-Build
+    name: Linux
     demands:
     - agent.os -equals linux
     matrix:
@@ -32,7 +30,7 @@ phases:
         METHOD: pip
   steps:
     - script: bash .travis/setup.sh
-    - script: bash .travis/test.sh
+
 
 
 
