@@ -3,7 +3,6 @@ phases:
 #################################################
 - phase: linux
 #################################################
-  condition: eq(variables.os, 'Linux')
   queue: 
     name: 'Hosted Linux Preview'
     matrix:
@@ -31,8 +30,8 @@ phases:
         TASK: gpu 
         METHOD: pip
   steps:
-    - script: bash .travis/setup.sh
-    - script: bash .travis/test.sh
+  - script: bash .travis/setup.sh
+  - script: bash .travis/test.sh
 
 
 
