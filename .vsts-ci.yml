@@ -1,7 +1,6 @@
 phases:
 - phase: Linux
-  queue:
-    name: Hosted Linux Preview
+  queue: 'Hosted Linux Preview'
     demands:
     - agent.os -equals linux
     matrix:
