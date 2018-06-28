@@ -4,7 +4,8 @@ phases:
 - phase: linux
 #################################################
   condition: eq(variables.os, 'Linux')
-  queue: Hosted Linux Preview
+  queue: 
+    name: 'Hosted Linux Preview'
     matrix:
       regular:
         TASK: regular
