@@ -1,1 +1,39 @@
+phases:
+################################################################################
+- phase: Linux
+################################################################################
+  queue:
+    name: LightGBM-Linux-Build
+    demands:
+    - agent.os -equals linux
+    matrix:
+      regular:
+        TASK: regular
+      mpi:
+        TASK: mpi
+        PYTHON_VERSION: 2.7
+      pylint: 
+        TASK: pylint
+      doc:
+        TASK: check-docs
+      inference:
+        TASK: if-else
+      sdist:
+        TASK: sdist
+        PYTHON_VERSION: 3.4
+      bdist:
+        TASK: bdist
+        PYTHON_VERSION: 3.5
+      gpu_1:
+        TASK: gpu 
+        METHOD: source
+      gpu_2:
+        TASK: gpu 
+        METHOD: pip
+  steps:
+    - script: bash .travis/setup.sh
+    - script: bash .travis/test.sh
+    displayName: Build
+
+
 
