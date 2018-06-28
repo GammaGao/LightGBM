@@ -1,9 +1,10 @@
 phases:
 - phase: Linux
-  queue: 'Hosted Linux Preview'
+    queue: 'Hosted Linux Preview'
 
     demands:
     - agent.os -equals linux
+
     matrix:
       regular:
         TASK: regular
@@ -29,9 +30,9 @@ phases:
         TASK: gpu 
         METHOD: pip
 
-  steps:
-    - script: bash .travis/setup.sh
-    - script: bash .travis/test.sh
+    steps:
+      - script: bash .travis/setup.sh
+      - script: bash .travis/test.sh
 
 
 
