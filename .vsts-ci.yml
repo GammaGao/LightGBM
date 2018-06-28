@@ -33,7 +33,7 @@ phases:
   steps:
     - script: bash .travis/setup.sh
     - script: bash .travis/test.sh
-    displayName: Build
+
 
 
 
