@@ -3,7 +3,8 @@ phases:
   variables:
     PYTHON_VERSION: 2.7
   queue:
-    name: Linux
+    name: 'Hosted Linux Preview'
+    parallel: 9
     demands:
     - agent.os -equals linux
     matrix:
