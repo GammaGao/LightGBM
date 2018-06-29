@@ -5,8 +5,6 @@ phases:
   queue:
     name: 'Hosted Linux Preview'
     parallel: 9
-    demands:
-    - agent.os -equals linux
     matrix:
       regular:
         TASK: regular
@@ -33,16 +31,14 @@ phases:
         METHOD: pip
   steps:
   - script: bash .vsts-ci/setup.sh
-  - task: CondaEnvironment@1
-  inputs:
-    #createCustomEnvironment: # Optional
-    #environmentName: # Required when createCustomEnvironment == True
-    packageSpecs: 'python=$(PYTHON_VERSION)' # Optional
-    #updateConda: # Optional
-    #installOptions: # Optional
-    createOptions: '-q -n test-env'
-    #cleanEnvironment: # Optional
-  - script: bash .vsts-ci/test.sh 
+  - task: CondaEnvironment@0
+    inputs:
+      environmentName: test-env
+      packageSpecs: 'python=$(PYTHON_VERSION)' # Optional
+      createOptions: '-q'
+
+  - script: bash .vsts-ci/test.sh
+
 
 
 
